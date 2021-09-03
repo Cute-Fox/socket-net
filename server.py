@@ -12,7 +12,8 @@ conn, addr = sock.accept()
 print ('connected:', addr)
 
 port = conn.recv(1024)
-print("Подключен пользователь с портом {}", port)
+print("Подключен пользователь с портом ", port)
+int(port)
 
 while True:
     data = conn.recv(1024)
