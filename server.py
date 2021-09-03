@@ -15,6 +15,7 @@ while True:
     data = conn.recv(1024)
     if not data:
         break
+    data.decode()
     conn.send(data.upper())
 
 conn.close()
