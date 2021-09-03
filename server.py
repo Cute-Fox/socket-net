@@ -11,6 +11,9 @@ sock.listen(1)
 conn, addr = sock.accept()
 print ('connected:', addr)
 
+port = conn.recv(1024)
+print("Подключен пользователь с портом {}", port)
+
 while True:
     data = conn.recv(1024)
     if not data:
