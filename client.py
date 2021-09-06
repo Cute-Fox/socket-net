@@ -11,7 +11,7 @@ class User:
         sock = socket.socket()
         self.sock = sock
         sock.connect(('localhost', self.serverPort))
-        print("Соединение с сервером успешно - отправлен ваш порт {}",self.port)
+        print("Соединение с сервером успешно - отправлен ваш порт",self.port)
     
     def close_network(self):
         self.sock.close
@@ -21,9 +21,9 @@ class User:
         self.getterPort = getterPort
         self.sock.send(self.port.encode()) # Отправляем свой порт
         self.sock.send(self.getterPort.encode()) # Отправляем порт кому мы отправляем сообщение
-        message = input()
+        message = input("\nВведите текст сообщения")
         self.message = message
-        self.sock.send(message.encode())
+        self.sock.send(message.encode()) # Отправляем сообщение
         data = self.sock.recv(1024)
         print(data)
 
